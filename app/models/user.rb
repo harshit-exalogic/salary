@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :secondary_skill_1,
   format: {with: /\A[a-zA-Z]+(?: [a-zA-Z]+)?\z/}
 
-  validates :secondary_skill_2,:presence => true,
+  validates :secondary_skill_2,
   format: {with: /\A[a-zA-Z]+(?: [a-zA-Z]+)?\z/}
   
 
@@ -28,7 +28,16 @@ class User < ApplicationRecord
   
   # validates :salary_per_annum, :salary_per_month,
   #             :numericality => true 
-  validates :role, :presence => true                          
+  validates :role, :presence => true   
+
+  #for salary details---
+
+  # validates :basic_pay , :presence => true
+  # validates :reimbursement ,:presence => true   
+  # validates :reimbursement ,:presence => true  
+  # validates :number_of_leaves_taken_by_employee , :presence => true  
+  # validates :enter_the_tax_rate, :presence=> true
+  # validates :other_deductions,:presence=>true                
                  
 
 end

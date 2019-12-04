@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+
+
+
+
+
 <head>
 	<style > 
 		body{
@@ -62,6 +67,12 @@ table#t01 th {
 
 
 
+
+ 
+
+
+
+
 	</style>
 </head>
 
@@ -71,13 +82,14 @@ table#t01 th {
 <body>
 	  
 	
-	<br><br><br>
+	
 	
 	
 
 
 	<% if current_user && current_user.role == "Admin" %>
 	<h1 style="background-color: initial;">Welcome Admin</h1>
+	
 
 	<ul>
 
@@ -85,48 +97,53 @@ table#t01 th {
 		<li style="font-weight:bold;"><%= link_to "View Employee", users_path%></li>
 		<li style="font-weight:bold; text-decoration: none;"><%= link_to "Log Out",logout_path %></li>
 		
+		
 	</ul>
+	<br>
+	<STRONG>ACTIVE USERS</STRONG><br>
+	 <%= User.count-1 %>
 		
 
 
 
 	<%elsif current_user && current_user.role == "Emplpyee"%>
 
-
+   		<strong><h1>Welcome <%= current_user.first_name%></h1></strong>
 
 		<table border="1" id="table">
 			<table id="t01">
 		<tr>
-		<th>name</th>
+
+		<th>First name</th>
 
 		<td><%= current_user.first_name%></td>
 		</tr>
 		<tr>
-		<th>last name</th>
+		<th>Last name</th>
 		<td><%= current_user.last_name%></td>
 		</tr>
 		<tr>
-		<th>age</th>
+		<th>Date of birth</th>
 		<td><%= current_user.date_of_birth%></td>	
 		</tr>
 		<tr>
-		<th>date_of_joining</th>
+		<th>Date of joining</th>
 		<td><%= current_user.date_of_joining%></td>
 		</tr>
 		<tr>
-		<th>Salary_per_annum</th>
+		<th>Salary per annum</th>
 		<td><%= current_user.salary_per_annum%></td>
 		</tr>
 		<tr>
-		<th>Salary_per_month</th>
-		<td><%= current_user.salary_per_month%></td>
+		<th>Salary per month</th>
+		<td><%=(current_user.salary_per_annum/12).to_i%></td> 
 		</tr>
 		<tr>
-		<th>email</th>
+		<th>Email</th>
 		<td><%= current_user.email%></td>
 		</tr>
 		<tr>
-		<th>address</th>
+		<th>Address</th>
 		<td><%= current_user.addrress%></td>
 		</tr>
 		<tr>
@@ -134,27 +151,27 @@ table#t01 th {
 		<td><%= current_user.mobile%></td>
 		</tr>
 		<tr>
-		<th>Blood_type</th>
+		<th>Blood type</th>
 		<td><%= current_user.blood_type%></td>
 		</tr>
 		<tr>
-		<th>Emergency_contact_name</th>
+		<th>Emergency contact name</th>
 		<td><%= current_user.emergency_contact_name%></td>
 		</tr>
 		<tr>
-		<th>Emergency_contact_number</th>
+		<th>Emergency contact number</th>
 		<td><%= current_user.emergency_contact_number%></td>
 		</tr>
 		<tr>
-		<th>Primary_skill</th>
+		<th>Primary skill</th>
 		<td><%= current_user.primary_skill%></td>
 		</tr>
 		<tr>
-		<th>Secondary_skill1</th>
+		<th>Secondary skill 1</th>
 		<td><%= current_user.secondary_skill_1%></td>
 		</tr>
 		<tr>
-		<th>Secondary_skill2</th>
+		<th>Secondary skill 2</th>
 		<td><%= current_user.secondary_skill_2%></td>
 		</tr>
 

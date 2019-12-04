@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body >
+
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<form>
+	<fieldset>
+
+	<legend><h1>Details</h1></legend>
+
+	<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+body{
+	  background: url(<%= asset_path 'image.jpg' %>);
+  background-size: 200%;
+}
+
+table {
+  width:50%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+table#t01 th {
+  background-color: black;
+  color: white;
+}
+
+</style>
+</head>
+
+<table>
+	<table id="t01">
+	<tr>
+		<th></th>
+		<th> </th>
+	</tr>
+	<tr>
+
+
+<td>
+  <strong>First name:</strong></td>
+  <td><%= @user.first_name %>
+</td>
+</tr>
+<tr>
+<td>
+  <strong>Basic Pay:</strong></td>
+  <td><%= @user.basic_pay %></td>
+</tr>
+<tr>
+<td>
+  <strong>Reimbursement</strong></td>
+  <td>
+  	<%= @user.reimbursement%>
+</td></tr>
+
+<tr>
+<td>
+  <strong>House Rent Allowance:</strong></td>
+  <td><%= @user.house_rent_allowance%></td>
+</tr>
+<tr>
+
+
+<td>
+  <strong>City Compensatory Allowance:</strong></td>
+  <td><%= @user.city_compensatory_allowance%></td>
+</tr>
+<tr>
+<td>
+  <strong>Special Allowance:</strong></td>
+  <td><%= @user.special_allowance%></td>
+</tr>
+<tr>
+	<td>
+  <strong>Transport Allowance:</strong></td>
+  <td><%= @user.transport_allowance%></td>
+</tr>
+<tr>
+<td>
+  <strong>Gross Pay:</strong></td>
+  <td><%= @user.gross_pay %></td>
+</tr>
+<!-- <tr>
+<td>
+  <strong>Number of Leaves Taken by Employee:</strong></td>
+  <td><%= (@user.number_of_leaves_taken_by_employee) %></td>
+</tr> -->
+<!-- <tr>
+<td>
+  <strong>Income Tax Rate (%):</strong></td>
+  <td><%= @user.enter_the_tax_rate%></td>
+</tr> -->
+
+
+
+ <tr><td colspan="4"><label><h3><b>DEDUCTIONS:-</b></h3></label></td></tr>
+
+<tr>
+<td>
+  <strong>Income Tax:</strong></td>
+  <td><%= @user.income_tax%></td>
+</tr>
+<tr>
+
+<td>
+  <strong>Professional Tax:</strong></td>
+  <td><%= @user.professional_tax %></td>
+</tr>
+<tr>
+<td>
+  <strong>Loss of Pay:</strong></td>
+  <td><%= @user.loss_of_pay %></td>
+</tr>
+
+<tr>
+<td>
+  <strong>Other Deductions:</strong></td>
+  <td><%= @user.other_deductions %></td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+<tr><td colspan="4"><label><h3><b>NET PAY:-</b></h3></label></td></tr>
+<tr>
+<td>
+  <strong>Net Pay:</strong></td>
+  <td><%= @user.net_pay  %></td>
+</tr>
+
+
+</table><br>
+
+<button><%= link_to 'Edit', salary_form_user_path(@user) %> </button>
+<button><%= link_to 'Back', users_path %></button>
+
+</fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+

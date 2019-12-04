@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_122301) do
+ActiveRecord::Schema.define(version: 2019_12_03_100032) do
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -38,6 +38,20 @@ ActiveRecord::Schema.define(version: 2019_11_27_122301) do
     t.decimal "pincode"
     t.string "country"
     t.string "gender"
+    t.decimal "basic_pay"
+    t.decimal "reimbursement"
+    t.decimal "number_of_leaves_taken_by_employee"
+    t.decimal "enter_the_tax_rate"
+    t.decimal "other_deductions"
+    t.decimal "house_rent_allowance"
+    t.decimal "city_compensatory_allowance"
+    t.decimal "special_allowance"
+    t.decimal "transport_allowance"
+    t.decimal "income_tax"
+    t.decimal "professional_tax"
+    t.decimal "loss_of_pay"
+    t.decimal "gross_pay"
+    t.decimal "net_pay"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -1,0 +1,198 @@
+
+<%=form_for @user, :url => url_for(:controller => 'users', :action => 'update_salary') do |form|%> 
+  <style >
+   body{
+    background: url(<%= asset_path 'image.jpg' %>);
+background-size: 200%;
+   }
+
+  
+
+
+ </style>
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name%>
+  </div>
+
+
+   <tr>
+    <td colspan="4"><label><h3><b>ENTER THE DETAILS:-</b></h3></label></td></tr>
+
+
+   <div class="field">
+	    <%= form.label :basic_pay %>
+	    <%= form.number_field :basic_pay ,:min =>'0'%>
+	</div>
+    <div class="field">
+        <%= form.label :Reimbursement %>
+        <%= form.number_field :reimbursement, :min => '0'%>
+    </div>
+    <div class="field">
+        <%= form.label :Number_of_Leaves_Taken_by_Employee %>
+        <%= form.number_field :number_of_leaves_taken_by_employee, :min => '0'%>
+    </div>
+    <div class="field">
+        <%= form.label :Enter_the_Tax_Rate%>
+        <%= form.number_field :enter_the_tax_rate, :min => '0'%>
+    </div>
+
+    <div class="field">
+                    <%= form.label :transport_allowance%>
+                    <%= form.number_field :transport_allowance,:min=>'0'%>
+                </div>
+    
+    <div class="field">
+        <%= form.label :Other_Deductions%>
+        <%= form.number_field :other_deductions, :min => '0'%>
+    </div>
+
+
+
+    
+        <tr>
+    <td colspan="4"><label><h3><b>CLICK THE BELLOW BUTTON TO GENERATE SALARY</b></h3></label></td></tr>
+
+            
+                <div colspan = "2" >
+                <input type = "button" name = "calculate" value = "Click Here To Calculate salary" onclick ="calc()"></div> <br>
+
+            
+                <div class="field">
+                    <%= form.label :house_rent_allowance%>
+                    <%= form.text_field :house_rent_allowance,id:"hra"%>
+                </div>
+                
+                
+                <div class="field">
+                    <%= form.label :city_compensatory_allowance%>
+                    <%= form.text_field :city_compensatory_allowance,id:"cca"%>
+                </div>
+            
+                
+                <div class="field">
+                    <%= form.label :special_allowance%>
+                    <%= form.text_field :special_allowance,id:"sa"%>
+                </div>
+
+                
+            
+                
+                <div class="field">
+                    <%= form.label :income_tax%>
+                    <%= form.text_field :income_tax,id:"it"%>
+                </div>
+            
+                
+                <div class="field">
+                    <%= form.label :professional_tax%>
+                    <%= form.text_field :professional_tax,id:"pt"%>
+                </div>
+            
+            
+                <div class="field">
+                    <%= form.label :loss_of_pay%>
+                    <%= form.text_field :loss_of_pay,id:"lop"%>
+                </div>
+                
+                <div class="field">
+                    <%= form.label :gross_pay%>
+                    <%= form.text_field :gross_pay,id:"gp"%>
+                </div>
+            
+                <div class="field">
+                    <%= form.label :net_pay%>
+                    <%= form.text_field :net_pay,id:"netpay"%>
+                </div>
+            
+                   
+
+    <div class="actions">
+    <%= form.submit %>
+  </div>
+<%end%>
+
+ <button><%= link_to 'Back', users_path %></button>
+          <input type="button" onclick="myFunction()" value="Reset form">
+
+
+
+
+
+
+
+<script type = "text/javascript">
+function calc()
+    {
+        var name,bp,HRA,CCA,SA,TA,RM,IT,PT,LOP,OD,NetPay,GP,Deduction,a,LIM, ITR,itr,lim,other,odeduct,TRNS;
+        // name = document.form1.firstname.value;
+        
+     
+        bp = parseInt(document.getElementById("user_basic_pay").value);
+        rm = parseInt(document.getElementById("user_reimbursement").value);
+        LIM= parseInt(document.getElementById("user_number_of_leaves_taken_by_employee").value);
+        ITR= parseInt(document.getElementById("user_enter_the_tax_rate").value);
+        TRNS= parseInt(document.getElementById("user_transport_allowance").value);
+        other= parseInt(document.getElementById("user_other_deductions").value);
+        
+        a=bp+rm;
+        LOP= (bp/30)*LIM;
+        HRA = (bp * 30)/100;
+        CCA = (bp * 15)/100;
+        SA = (bp * 5)/100;
+        // TA = (bp * 5)/100;
+        // RM = 1000;
+        IT = (bp * ITR) /100;
+        PT = 200;
+        // LOP = 1000;
+        // OD = 800;
+        GP = a+HRA+CCA+SA+TRNS;
+        Deduction = IT+PT+LOP+other;
+        NetPay = GP - Deduction;
+
+        document.getElementById("hra").value = HRA;
+        document.getElementById("cca").value = CCA;
+        document.getElementById("sa").value = SA;
+        // document.getElementById("ta").value = TRNS;
+        
+        document.getElementById("it").value = IT;
+        document.getElementById("pt").value = PT;
+        // document.form1.lop.value = LOP;
+        // document.form1.od.value = OD;
+        document.getElementById("lop").value = LOP;
+        document.getElementById("gp").value = GP;
+        document.getElementById("netpay").value = NetPay;
+
+    }
+
+    function myFunction() {
+        document.getElementById("user_basic_pay").value  = "";
+        document.getElementById("user_reimbursement").value  = "";
+        document.getElementById("user_number_of_leaves_taken_by_employee").value  = "";
+        document.getElementById("user_enter_the_tax_rate").value  = "";
+        document.getElementById("user_transport_allowance").value  = "";
+        document.getElementById("user_other_deductions").value  = "";
+        document.getElementById("hra").value = "";
+        document.getElementById("cca").value = "";
+        document.getElementById("sa").value = "";
+        // document.getElementById("ta").value = "";
+        
+        document.getElementById("it").value = "";
+        document.getElementById("pt").value = "";
+        // document.form1.lop.value = ""P;
+        // document.form1.od.value = "";
+        document.getElementById("lop").value = "";
+        document.getElementById("gp").value = "";
+        document.getElementById("netpay").value = "";
+}
+
+
+
+    
+</script>
+
+
+<!-- <input type="reset" name="button" value="Reset"/> -->
+
+       
+    

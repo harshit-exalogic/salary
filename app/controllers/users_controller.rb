@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy,:salary_form,:update_salary,:show_salary]
   # before_action :is_admin?, except: [:show]
   # before_action :is_user?, only: [:show]
 
@@ -65,6 +65,21 @@ class UsersController < ApplicationController
     end
   end
 
+
+    def salary_form
+
+    end
+
+    def show_salary
+      
+    end
+    def update_salary
+      @user.update!(user_params)
+      redirect_to show_salary_user_path (@user)
+
+    end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -73,7 +88,16 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :date_of_birth, :date_of_joining, :salary_per_annum, :salary_per_month, :addrress, :state,:pincode,:country,:gender, :mobile, :blood_type, :emergency_contact_name, :emergency_contact_number, :primary_skill, :secondary_skill_1, :secondary_skill_2, :notice_period_in_days, :role, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name,:basic_pay,:reimbursement, 
+        :number_of_leaves_taken_by_employee,
+       :enter_the_tax_rate, :other_deductions, :house_rent_allowance,:city_compensatory_allowance, :special_allowance,:transport_allowance ,
+        :income_tax,:professional_tax , :loss_of_pay, :gross_pay , :net_pay, 
+        :last_name, :date_of_birth, :date_of_joining,
+         :salary_per_annum, :salary_per_month, :addrress, :state,:pincode,:country,
+         :gender, :mobile, :blood_type, :emergency_contact_name, 
+         :emergency_contact_number, :primary_skill, :secondary_skill_1, 
+         :secondary_skill_2, :notice_period_in_days, :role, :email, :password,
+          :password_confirmation)
     end
 
     # def is_admin?
@@ -87,5 +111,6 @@ class UsersController < ApplicationController
     #     redirect_to root_path
     #   end
     # end
+
     
 end
