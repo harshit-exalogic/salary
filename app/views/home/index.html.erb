@@ -27,10 +27,10 @@ li a {
   display: block;
   color: #ccc;
   text-align: center;
-  padding: 16px 25px;
+  padding: 18px 35px;
   text-decoration: none;
   font-weight: bold;
-  margin-left: 200px;
+  margin-left: 135px;
  
 
 }
@@ -88,20 +88,33 @@ table#t01 th {
 
 
 	<% if current_user && current_user.role == "Admin" %>
-	<h1 style="background-color: initial;">Welcome Admin</h1>
+	 <img src="assets/exalogic.png" alt="exalogic logo" width="120" height="40" style="position: relative;left: 1050px;">
+	
 	
 
 	<ul>
 
 		<li style="font-weight:bold; color: black;"><%= link_to "Create Employee", signup_path %></li>
 		<li style="font-weight:bold;"><%= link_to "View Employee", users_path%></li>
+		<li style="font-weight:bold;"><a href="https://www.facebook.com/exalogicsolns/html/" target="_blank">Follow Us</a></li>
+
 		<li style="font-weight:bold; text-decoration: none;"><%= link_to "Log Out",logout_path %></li>
+
+
 		
 		
-	</ul>
-	<br>
-	<STRONG>ACTIVE USERS</STRONG><br>
-	 <%= User.count-1 %>
+	</ul><br><br>
+
+	<br><center><h1 style="background-color: initial;">Welcome Admin<br></h1></center>
+	<center><img style="border-radius: 40px" src="assets/admin.jpg" alt="admin logo" width="150" height="150"></center><br><br><br>
+
+
+	
+
+
+
+	<center><STRONG>ACTIVE USERS</STRONG><br></center>
+	 <center><%= User.count-1 %></center>
 		
 
 
@@ -129,6 +142,34 @@ table#t01 th {
 		<tr>
 		<th>Date of joining</th>
 		<td><%= current_user.date_of_joining%></td>
+		</tr>
+		<tr>
+		<th>employee_id</th>
+		<td><%= (current_user.employee_id).to_i%></td>
+		</tr>
+		<tr>
+		<th>department</th>
+		<td><%= current_user.department%></td>
+		</tr>
+		<tr>
+		<th>designation</th>
+		<td><%= current_user.designation%></td>
+		</tr>
+		<tr>
+		<th>bank_name</th>
+		<td><%= current_user.bank_name%></td>
+		</tr>
+		<tr>
+		<th>bank_branch</th>
+		<td><%= current_user.bank_branch%></td>
+		</tr>
+		<tr>
+		<th>ifsc_code</th>
+		<td><%= current_user.ifsc_code%></td>
+		</tr>
+		<tr>
+		<th>bank_account</th>
+		<td><%= (current_user.bank_account).to_i%></td>
 		</tr>
 		<tr>
 		<th>Salary per annum</th>
@@ -178,6 +219,7 @@ table#t01 th {
 		</table>
 		<br>
 		<button><%= link_to "Log Out",logout_path %></button>
+		<button><%= link_to "Salary Details", salary_details_path %></button>
 
 
 	<%end%>

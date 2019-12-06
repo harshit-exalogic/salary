@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+<head>
+	<style > 
+		body{
+			 background: url(<%= asset_path 'image.jpg' %>);
+  background-size: 200%;
+		}
+
+		table {
+  width:50%;
+}
+table, th, td {
+  border: 1px solid black;
+  }
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+table#t01 th {
+  background-color: black;
+  color: white;
+}
+
+
+
+	</style>
+</head>
+<body>
+	
+
+
+<table border="1" id="table">
+			<table id="t01">
+		<tr>
+		<th>First name</th>
+		<td><%= current_user.first_name%></td>
+		</tr>
+		<tr>
+		<th>Basic Pay:</th>
+		<td><%= current_user.basic_pay%></td>
+		</tr>
+		<tr>
+		<th>Reimbursement:</th>
+		<td><%= current_user.reimbursement%></td>	
+		</tr>
+		<tr>
+		<th>House Rent Allowance:</th>
+		<td><%= current_user.house_rent_allowance%></td>
+		</tr>
+		<tr>
+		<th>City Compensatory Allowance:</th>
+		<td><%= current_user.city_compensatory_allowance%></td>
+		</tr>
+		<tr>
+		<th>Special Allowance:</th>
+		<td><%=current_user.special_allowance%></td> 
+		</tr>
+		<tr>
+		<th>Transport Allowance:</th>
+		<td><%= current_user.transport_allowance%></td>
+		</tr>
+		<tr>
+		<th>Gross Pay:</th>
+		<td><%= current_user.gross_pay%></td>
+		</tr>
+		<tr><td colspan="4"><label><h3><b>DEDUCTIONS:-</b></h3></label></td></tr>
+
+		<tr>
+		<th>Income Tax:</th>
+		<td><%= current_user.income_tax%></td>
+		</tr>
+		<tr>
+		<th>Professional Tax:</th>
+		<td><%= current_user.professional_tax%></td>
+		</tr>
+		<tr>
+		<th>Loss of Pay:</th>
+		<td><%= current_user.loss_of_pay%></td>
+		</tr>
+		<tr>
+		<th>Other Deductions:</th>
+		<td><%= current_user.other_deductions%></td>
+		</tr>
+
+		<tr><td colspan="4"><label><h3><b>NET PAY:-</b></h3></label></td></tr>
+
+
+		<tr>
+		<th>Net Pay:</th>
+		<td><%= current_user.net_pay%></td>
+		</tr>
+		
+
+		</table><br>
+		<button><%= link_to 'Back', root_path %> </button>
+		<button onclick="myFunction()">Print this page</button>
+
+
+
+
+</body>
+<script>
+function myFunction() {
+  window.print();
+}
+</script>
+
+
+
+
+</html>
+	

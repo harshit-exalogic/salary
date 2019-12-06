@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy,:salary_form,:update_salary,:show_salary]
+  before_action :set_user, only: [:show, :edit, :update, :destroy,:salary_form,:update_salary,:show_salary,:salary_slip]
   # before_action :is_admin?, except: [:show]
   # before_action :is_user?, only: [:show]
 
@@ -78,6 +78,8 @@ class UsersController < ApplicationController
       redirect_to show_salary_user_path (@user)
 
     end
+    def salary_slip
+    end
 
 
   private
@@ -97,7 +99,7 @@ class UsersController < ApplicationController
          :gender, :mobile, :blood_type, :emergency_contact_name, 
          :emergency_contact_number, :primary_skill, :secondary_skill_1, 
          :secondary_skill_2, :notice_period_in_days, :role, :email, :password,
-          :password_confirmation)
+          :password_confirmation,:employee_id,:department,:designation,:bank_account,:bank_name,:bank_branch,:ifsc_code,:total_deductions)
     end
 
     # def is_admin?

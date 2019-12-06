@@ -3,6 +3,7 @@
 
 
 <head>
+  <img src="assets/exalogic.png" alt="exalogic logo" width="120" height="40" style="position: relative;left: 1050px;"><br>
   <style>
     body{
        background: url(<%= asset_path 'image.jpg' %>);
@@ -27,7 +28,7 @@ li a {
   padding: 18px 35px;
   text-decoration: none;
   font-weight: bold;
-  margin-left: 100px;
+  margin-left: 195px;
 
 }
 
@@ -86,7 +87,7 @@ li a:hover {
 </head>
 
 
-<body >
+<body ><br>
 
 
 <ul>
@@ -102,7 +103,7 @@ li a:hover {
 
 <p id="notice"><%= notice %></p>
 
-<fieldset style="border: 2px solid black; width: 1px ; text-align:center; margin-left: 105px; padding-left: 40px; padding-right: 40px; ">
+<fieldset style="border: 2px solid black; width: 1px ; text-align:center; margin-left: 45px; padding-left: 40px; padding-right: 40px; ">
   <legend><h1>List of users:</h1></legend>
 <head>
 <style>
@@ -128,6 +129,7 @@ th, td {
       <th>Delete</th>
       <th>Salary form</th>
       <th>Show Salary</th>
+      <th>Pay Slip</th>
       <!-- <th colspan="3"></th> -->
     </tr>
   </thead>
@@ -143,6 +145,7 @@ th, td {
         <td><button class="button button4"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }%></button></td>
         <td><button class="button button4"><%= link_to 'Add Salary', salary_form_user_path(user)%></button></td>
         <td><button class="button button4"><%= link_to 'Show Salary', show_salary_user_path(user)%></button></td>
+        <td><button class="button button4"><%= link_to 'Pay Slip', salary_slip_path(id: user.id)%></button></td>
       </tr>
     <% end %>
   </tbody>

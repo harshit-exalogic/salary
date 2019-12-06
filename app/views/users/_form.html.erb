@@ -57,6 +57,41 @@ background-size: 200%;
     <%= form.date_field :date_of_joining %>
   </div>
 
+
+  <div class="field">
+    <%= form.label :employee_Id %>
+    <%= form.number_field :employee_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :department %>
+    <%= form.text_field :department %>
+  </div>
+
+  <div class="field">
+    <%= form.label :designation %>
+    <%= form.text_field :designation %>
+  </div>
+  <div class="field">
+    <%= form.label :bank_name %>
+    <%= form.text_field :bank_name %>
+  </div>
+  <div class="field">
+    <%= form.label :bank_branch %>
+    <%= form.text_field :bank_branch %>
+  </div>
+  <div class="field">
+    <%= form.label :IFSC_code %>
+    <%= form.text_field :ifsc_code %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :bank_account %>
+    <%= form.number_field :bank_account,:minlength =>8, :maxlength => 18 %>
+  </div>
+
+
   <div class="field">
     <%= form.label :salary_per_annum %>
     <%= form.number_field :salary_per_annum ,{:min =>'0'}%>
@@ -171,8 +206,12 @@ background-size: 200%;
 
 
   <%= link_to 'Home', root_path %>
+  
 
 <% end %>
+
+
+
 
 
 

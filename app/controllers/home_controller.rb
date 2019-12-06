@@ -4,4 +4,6 @@ class HomeController < ApplicationController
   end
   def new
   end
+  def salary_details
+  end
 end

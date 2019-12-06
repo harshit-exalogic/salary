@@ -142,6 +142,10 @@ table#t01 th {
   <strong>Other Deductions:</strong></td>
   <td><%= @user.other_deductions %></td>
 </tr>
+<td>
+  <strong>Total Deductions:</strong></td>
+  <td><%= @user.total_deductions %></td>
+</tr>
 
 
 
@@ -164,9 +168,19 @@ table#t01 th {
 
 <button><%= link_to 'Edit', salary_form_user_path(@user) %> </button>
 <button><%= link_to 'Back', users_path %></button>
+<button onclick="myFunction()">Print this page</button>
 
 </fieldset>
 </form>
+
+
+
+
+<script>
+function myFunction() {
+  window.print();
+}
+</script>
 
 
 

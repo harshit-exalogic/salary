@@ -5,26 +5,35 @@
     background: url(<%= asset_path 'image.jpg' %>);
 background-size: 200%;
    }
+ 
+
 
   
 
 
  </style>
+ 
   <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name%>
   </div>
 
 
+
    <tr>
     <td colspan="4"><label><h3><b>ENTER THE DETAILS:-</b></h3></label></td></tr>
 
+
+
+
+
+ 
 
    <div class="field">
 	    <%= form.label :basic_pay %>
 	    <%= form.number_field :basic_pay ,:min =>'0'%>
 	</div>
-    <div class="field">
+        <div class="field">
         <%= form.label :Reimbursement %>
         <%= form.number_field :reimbursement, :min => '0'%>
     </div>
@@ -49,10 +58,12 @@ background-size: 200%;
 
 
 
-    
-        <tr>
-    <td colspan="4"><label><h3><b>CLICK THE BELLOW BUTTON TO GENERATE SALARY</b></h3></label></td></tr>
 
+
+    
+    <tr>
+    <td colspan="4"><label><h3><b>CLICK THE BELOW BUTTON TO GENERATE SALARY</b></h3></label></td></tr>
+ 
             
                 <div colspan = "2" >
                 <input type = "button" name = "calculate" value = "Click Here To Calculate salary" onclick ="calc()"></div> <br>
@@ -94,6 +105,10 @@ background-size: 200%;
                     <%= form.label :loss_of_pay%>
                     <%= form.text_field :loss_of_pay,id:"lop"%>
                 </div>
+                <div class="field">
+                    <%= form.label :total_deductions%>
+                    <%= form.text_field :total_deductions,id:"td"%>
+                </div>
                 
                 <div class="field">
                     <%= form.label :gross_pay%>
@@ -124,7 +139,7 @@ background-size: 200%;
 <script type = "text/javascript">
 function calc()
     {
-        var name,bp,HRA,CCA,SA,TA,RM,IT,PT,LOP,OD,NetPay,GP,Deduction,a,LIM, ITR,itr,lim,other,odeduct,TRNS;
+        var name,bp,HRA,CCA,SA,TA,RM,IT,PT,LOP,OD,NetPay,GP,Deduction,a,LIM, ITR,itr,lim,other,odeduct,TRNS,td;
         // name = document.form1.firstname.value;
         
      
@@ -150,6 +165,8 @@ function calc()
         Deduction = IT+PT+LOP+other;
         NetPay = GP - Deduction;
 
+        
+
         document.getElementById("hra").value = HRA;
         document.getElementById("cca").value = CCA;
         document.getElementById("sa").value = SA;
@@ -160,6 +177,7 @@ function calc()
         // document.form1.lop.value = LOP;
         // document.form1.od.value = OD;
         document.getElementById("lop").value = LOP;
+        document.getElementById("td").value = Deduction;
         document.getElementById("gp").value = GP;
         document.getElementById("netpay").value = NetPay;
 
@@ -182,6 +200,7 @@ function calc()
         // document.form1.lop.value = ""P;
         // document.form1.od.value = "";
         document.getElementById("lop").value = "";
+        document.getElementById("td").value = "";
         document.getElementById("gp").value = "";
         document.getElementById("netpay").value = "";
 }

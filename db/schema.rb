@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_100032) do
+ActiveRecord::Schema.define(version: 2019_12_06_102627) do
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(version: 2019_12_03_100032) do
     t.decimal "loss_of_pay"
     t.decimal "gross_pay"
     t.decimal "net_pay"
+    t.decimal "employee_id"
+    t.string "department"
+    t.string "designation"
+    t.decimal "bank_account"
+    t.string "bank_name"
+    t.string "bank_branch"
+    t.string "ifsc_code"
+    t.decimal "total_deductions"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

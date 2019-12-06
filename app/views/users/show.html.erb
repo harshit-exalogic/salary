@@ -73,50 +73,86 @@ table#t01 th {
 </tr>
 <tr>
 <td>
-  <strong>date_of_birth</strong></td>
+  <strong>Date of Birth</strong></td>
   <td>
   	<%= @user.date_of_birth%>
 </td></tr>
 <tr>
 <td>
-  <strong>date_of_joining:</strong></td>
+  <strong>Date of Joining:</strong></td>
   <td><%= @user.date_of_joining %></td>
 </tr>
 <tr>
 <td>
-  <strong>salary_per_annum:</strong></td>
+  <strong>Employee ID:</strong></td>
+  <td><%= (@user.employee_id).to_i%></td>
+</tr>
+<tr>
+<td>
+  <strong>Department:</strong></td>
+  <td><%= @user.department %></td>
+</tr>
+<tr>
+<td>
+  <strong>Designation:</strong></td>
+  <td><%= @user.designation %></td>
+</tr>
+<tr>
+<td>
+  <strong>Bank Name:</strong></td>
+  <td><%= @user.bank_name %></td>
+</tr>
+<tr>
+<td>
+  <strong>Bank Branch:</strong></td>
+  <td><%= @user.bank_branch %></td>
+</tr>
+<tr>
+<td>
+  <strong>IFSC Code:</strong></td>
+  <td><%= @user.ifsc_code %></td>
+</tr>
+
+<tr>
+<td>
+  <strong>Bank Account:</strong></td>
+  <td><%= (@user.bank_account).to_i %></td>
+</tr>
+<tr>
+<td>
+  <strong>Salary Per Annum:</strong></td>
   <td><%= @user.salary_per_annum%></td>
 </tr>
 <tr>
 <td>
-  <strong>salary_per_month:</strong></td>
+  <strong>Salary Per Month:</strong></td>
   <td><%= (@user.salary_per_annum/12).to_i %></td>
 </tr>
 <tr>
 <td>
-  <strong>address:</strong></td>
+  <strong>Address:</strong></td>
   <td><%= @user.addrress%></td>
 </tr>
 <tr>
 
 
 <td>
-  <strong>state:</strong></td>
+  <strong>State:</strong></td>
   <td><%= @user.state%></td>
 </tr>
 <tr>
 <td>
-  <strong>pincode:</strong></td>
+  <strong>Pincode:</strong></td>
   <td><%= (@user.pincode).to_i%></td>
 </tr>
 <tr>
 	<td>
-  <strong>country:</strong></td>
+  <strong>Country:</strong></td>
   <td><%= @user.country%></td>
 </tr>
 <tr>
 <td>
-  <strong>gender:</strong></td>
+  <strong>Gender:</strong></td>
   <td><%= @user.gender%></td>
 </tr>
 <tr>
@@ -126,54 +162,54 @@ table#t01 th {
 
 
 <td>
-  <strong>mobile:</strong></td>
+  <strong>Mobile:</strong></td>
   <td><%= @user.mobile %></td>
 </tr>
 <tr>
 
 
 <td>
-  <strong>blood_type:</strong></td>
+  <strong>Blood Type:</strong></td>
   <td><%= @user.blood_type %></td>
 </tr>
 <tr>
 <td>
-  <strong>emergency_contact_name:</strong></td>
+  <strong>Emergency Contact Name:</strong></td>
   <td><%= @user.emergency_contact_name %></td>
 </tr>
 <tr>
 <td>
-  <strong>emergency_contact_number:</strong></td>
+  <strong>Emergency Ccontact Number:</strong></td>
   <td><%= @user.emergency_contact_number %></td>
 </tr>
 <tr>
 <td>
-  <strong>primary_skill:</strong></td>
+  <strong>Primary Skill:</strong></td>
  <td> <%= @user.primary_skill %></td>
 </tr>
 <tr>
 
 
 <td>
-  <strong>secondary_skill_1:</strong></td>
+  <strong>Secondary Skill 1:</strong></td>
   <td><%= @user.secondary_skill_1 %></td>
 </tr>
 <tr>
 
 <td>
-  <strong>secondary_skill_2:</strong></td>
+  <strong>Secondary Skill 2:</strong></td>
  <td> <%= @user.secondary_skill_2 %></td>
 </tr>
 <tr>
 
 <td>
-  <strong>notice_period_in_days:</strong></td>
+  <strong>Notice Period in Days:</strong></td>
   <td><%= @user.notice_period_in_days %></td>
 </tr>
 
 <tr>
 <td>
-  <strong>role:</strong></td>
+  <strong>Role:</strong></td>
  <td> <%= @user.role %></td>
 </tr>
 
@@ -189,9 +225,17 @@ table#t01 th {
 
 <button><%= link_to 'Edit', edit_user_path(@user) %> </button>
 <button><%= link_to 'Back', users_path %></button>
+<button onclick="myFunction()">Print this page</button>
 
 </fieldset>
 </form>
+
+<script>
+function myFunction() {
+  window.print();
+}
+</script>
+
 
 
 
