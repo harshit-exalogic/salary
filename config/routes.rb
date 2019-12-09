@@ -14,6 +14,9 @@ Rails.application.routes.draw do
    get '/new' => "home#new"
    get '/salary_details' => "home#salary_details"
    get '/salary_slip' => "users#salary_slip"
+   resources :users do
+   get 'download'
+end
 
 
 

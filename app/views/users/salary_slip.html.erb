@@ -19,7 +19,8 @@
             text-align: left; 
         } 
     </style> 
-
+<title>PDF</title>
+  <%= wicked_pdf_stylesheet_link_tag "application" %>
 </head>
 <body>
 	<table width = 100%>
@@ -62,7 +63,7 @@
 	</table><br>
 
 	<table width=100%, border="1px", style="border-collapse: collapse;"> 
-        <caption style="font-weight: bold;">DETAILS</caption> 
+        <!-- <caption style="font-weight: bold;">DETAILS</caption>  -->
         <tr> 
             <th>Earnings</th> 
             <th>Amount</th> 
@@ -156,6 +157,13 @@ function myFunction() {
 
 
 </fieldset><br>
+<%#= wicked_pdf_stylesheet_link_tag 'user' %>
+<!--     <div class="some-div">
+        <div class="some-other-div">
+             
+        </div>
+    </div> -->
+
 <button><%= link_to 'Back', users_path %></button>
 
 <center><button onclick="myFunction()">Print</button></center>

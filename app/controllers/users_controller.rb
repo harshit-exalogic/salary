@@ -79,7 +79,22 @@ class UsersController < ApplicationController
 
     end
     def salary_slip
-    end
+       #@user=User.find_by_id(params[:id])
+    #  pdf = WickedPdf.new.pdf_from_string( #1
+    # render_to_string('salary_slip', layout: false)) #2
+    # send_data(pdf, #3
+    # filename: 'salary_slip.pdf', #4
+    # type: 'application/pdf', #5
+    # disposition: 'attachment') #6
+     respond_to do |format|
+   format.html
+   format.pdf do
+     render pdf: "Your_filename",
+     template: "users/salary_slip.html.erb"
+     # layout: 'pdf.html'
+   end
+  end
+end
 
 
   private
@@ -116,3 +131,4 @@ class UsersController < ApplicationController
 
     
 end
+

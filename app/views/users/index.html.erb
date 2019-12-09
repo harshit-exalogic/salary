@@ -145,7 +145,7 @@ th, td {
         <td><button class="button button4"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }%></button></td>
         <td><button class="button button4"><%= link_to 'Add Salary', salary_form_user_path(user)%></button></td>
         <td><button class="button button4"><%= link_to 'Show Salary', show_salary_user_path(user)%></button></td>
-        <td><button class="button button4"><%= link_to 'Pay Slip', salary_slip_path(id: user.id)%></button></td>
+        <td><button class="button button4"><%= link_to 'Pay Slip', salary_slip_path(id: user.id, :format => :pdf)%></button></td>
       </tr>
     <% end %>
   </tbody>
