@@ -19,8 +19,7 @@
             text-align: left; 
         } 
     </style> 
-<title>PDF</title>
-  <%= wicked_pdf_stylesheet_link_tag "application" %>
+
 </head>
 <body>
 	<table width = 100%>
@@ -148,23 +147,44 @@
 
 
 <script>
-function myFunction() {
-  window.print();
-}
+// function myFunction() {
+//   window.print();
+// }
+ function printpage() {
+        //Get the print button and put it into a variable
+        var printButton = document.getElementById("printpagebutton");
+        //Set the print button visibility to 'hidden' 
+        printButton.style.visibility = 'hidden';
+        //Print the page content
+        window.print()
+        //Set the print button to 'visible' again 
+        //[Delete this line if you want it to stay hidden after printing]
+        printButton.style.visibility = 'visible';
+
+    }
+   
+
+//    function goBack() {
+    
+//   window.history.back();
+//   display : none;
+  
+
+// } 
+ 
+
 </script>
 
 </body>
 
 
 </fieldset><br>
-<%#= wicked_pdf_stylesheet_link_tag 'user' %>
-<!--     <div class="some-div">
-        <div class="some-other-div">
-             
-        </div>
-    </div> -->
 
-<button><%= link_to 'Back', users_path %></button>
+<!-- <button onclick="goBack()">Go Back</button> -->
 
-<center><button onclick="myFunction()">Print</button></center>
+ <%#= link_to 'Back', users_path %>
+
+<!-- <center><button onclick="myFunction()">Print</button></center> -->
+
+<center><input id="printpagebutton" type="button" value="Print & Save as PDF" onclick="printpage()"/></center>
 </html>

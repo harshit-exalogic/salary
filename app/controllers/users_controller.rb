@@ -86,16 +86,15 @@ class UsersController < ApplicationController
     # filename: 'salary_slip.pdf', #4
     # type: 'application/pdf', #5
     # disposition: 'attachment') #6
-     respond_to do |format|
-   format.html
-   format.pdf do
-     render pdf: "Your_filename",
-     template: "users/salary_slip.html.erb"
-     # layout: 'pdf.html'
-   end
-  end
-end
-
+  #    respond_to do |format|
+  #  format.html
+  #  format.pdf do
+  #    render pdf: "Your_filename",
+  #    template: "users/salary_slip.html.erb"
+  #    layout: 'pdf.html'
+  #  end
+  # end
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -24,8 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 #gem 'to_words'
 
 #gem 'jquery-rails'
-gem 'wicked_pdf', '~> 1.1'
-gem 'wkhtmltopdf-binary'
+# gem 'wicked_pdf', '~> 1.1'
+# gem 'wkhtmltopdf-binary'
 #gem 'wkhtmltopdf-binary'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
