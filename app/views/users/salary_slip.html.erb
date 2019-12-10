@@ -3,10 +3,13 @@
 
 <fieldset><br>
 <head>
-  <img src="assets/exalogic.png" alt="exalogic logo" width="120" height="40" style="position: relative;right: : 950px;">
+  <!-- <img src="assets/exalogic.png" alt="exalogic logo" width="120" height="40" style="position: relative;right: : 950px;"> -->
+  <img src="http://www.exalogic.in/wp-content/uploads/2018/08/exalogic.png" style="width:15%">
+  <%#= image_tag (asset_path 'exalogic.png') %>
   <center><h2><header style="font-weight: bold;">Exalogic Solutions Pvt Ltd<br><br>22, Ganganagar 1st Main Road, Bangalore-560032 (India)</header></h2></center><br><br>
   <hr>
-<center><h1>Pay Slip (<%=Date::MONTHNAMES[Date.today.month] %>-<%= Date.today.strftime("%Y") %>)</h1></center>
+<center><h1>Pay Slip (<%= @user.salary_month %>-<%=@user.salary_year%>)</h1></center>
+<%#=Date::MONTHNAMES[Date.today.month] %><%#= Date.today.strftime("%Y") %>
 <hr>
 
  <style> 
@@ -18,50 +21,54 @@
         th { 
             text-align: left; 
         } 
+
+
+
+        
     </style> 
 
 </head>
 <body>
-	<table width = 100%>
-		<tr>
-			<td>
-				<strong>Employee id:</strong></td>
-			<td><%= (@user.employee_id).to_i%></td>
-			<td>
-				<strong>Name:</strong></td>	
-				<td><%= @user.first_name %>&nbsp;<%= @user.last_name %></td>
-		</tr>
-		<tr>
-			<td>
-				<strong>Department:</strong></td>
-			<td><%= @user.department %></td>
-			<td>
-				<strong>Designation:</strong></td>
-			<td><%= @user.designation %></td>
-			
-		</tr>
-		<tr>
-			<td>
-				<strong>Date of Joining:</strong></td>
-			<td><%= @user.date_of_joining %></td>
-			<td>
-				<strong>PF/ESI:</strong></td>
-			<td>0</td>
-			
-		</tr>
-		<tr>
-			<td>
-				<strong>Bank Account:</strong></td>
-			<td><%= (@user.bank_account).to_i %>&nbsp;(<%= @user.bank_name %>)</td>
-			<td>
-				<strong>Number of Days:</strong></td>
-			<td><%= Time.days_in_month(Time.now.month, Time.now.year) %></td>
-			
-		</tr>
+    <table width = 100%>
+        <tr>
+            <td>
+                <strong>Employee id:</strong></td>
+            <td><%= (@user.employee_id).to_i%></td>
+            <td>
+                <strong>Name:</strong></td> 
+                <td><%= @user.first_name %>&nbsp;<%= @user.last_name %></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Department:</strong></td>
+            <td><%= @user.department %></td>
+            <td>
+                <strong>Designation:</strong></td>
+            <td><%= @user.designation %></td>
+            
+        </tr>
+        <tr>
+            <td>
+                <strong>Date of Joining:</strong></td>
+            <td><%= @user.date_of_joining %></td>
+            <td>
+                <strong>PF/ESI:</strong></td>
+            <td>0</td>
+            
+        </tr>
+        <tr>
+            <td>
+                <strong>Bank Account:</strong></td>
+            <td><%= (@user.bank_account).to_i %>&nbsp;(<%= @user.bank_name %>)</td>
+            <td>
+                <strong>Number of Days:</strong></td>
+        <td><%= @user.days_in_a_month%><%#= Time.days_in_month(Time.now.month, Time.now.year) %></td>
+            
+        </tr>
 
-	</table><br>
+    </table><br>
 
-	<table width=100%, border="1px", style="border-collapse: collapse;"> 
+    <table width=100%, border="1px", style="border-collapse: collapse;"> 
         <!-- <caption style="font-weight: bold;">DETAILS</caption>  -->
         <tr> 
             <th>Earnings</th> 
@@ -71,7 +78,7 @@
         </tr> 
         <tr> 
             <td>Basic Pay</td> 
-            <td><%= @user.basic_pay %></td>
+            <td><%= @user.basic_pay%></td>
             <td>Professional Tax</td>
             <td><%= @user.professional_tax %></td>
 
@@ -113,7 +120,7 @@
             
         </tr> 
         <tr> 
-            <td style="font-weight: bold; text-decoration: underline;">Total Earnings</td> 
+            <td style="font-weight: bold; text-decoration: underline;">Total Earnings (Gross Pay)</td> 
             <td><%= @user.gross_pay %></td>
             <td style="font-weight: bold;text-decoration: underline;">Total Deductions</td>
             <td><%= @user.total_deductions %></td>
@@ -124,56 +131,29 @@
             <td></td>
             <td style="font-weight: bold;text-decoration: underline;">Net Pay</td>
             <td><%= @user.net_pay  %></td>   
-            	
-		</tr>
-	</table>
-	<br>
+                
+        </tr>
+    </table>
+    <br>
 
-	<table >
+    <table >
 
-		<tr>
-			<td>
-				<strong>Net Pay (in words):</strong></td>
-			<td style="font-weight: bold"><%= in_words(@user.net_pay.to_i).capitalize  %> only</td>
-		</tr>
-	</table>
-	<br>
-	<hr>
+        <tr>
+            <td>
+                <strong>Net Pay (in words):</strong></td>
+            <td style="font-weight: bold"><%= in_words(@user.net_pay.to_i).capitalize  %> only</td>
+        </tr>
+    </table>
+    <br>
+    <hr>
 
-	<center><p style="font-weight: bold">***This is system generated payslip and does not require signature</p></center>
-
-
+    <center><p style="font-weight: bold">***This is system generated payslip and does not require signature</p></center>
 
 
 
-<script>
-// function myFunction() {
-//   window.print();
-// }
- function printpage() {
-        //Get the print button and put it into a variable
-        var printButton = document.getElementById("printpagebutton");
-        //Set the print button visibility to 'hidden' 
-        printButton.style.visibility = 'hidden';
-        //Print the page content
-        window.print()
-        //Set the print button to 'visible' again 
-        //[Delete this line if you want it to stay hidden after printing]
-        printButton.style.visibility = 'visible';
 
-    }
-   
 
-//    function goBack() {
-    
-//   window.history.back();
-//   display : none;
-  
 
-// } 
- 
-
-</script>
 
 </body>
 
@@ -188,3 +168,38 @@
 
 <center><input id="printpagebutton" type="button" value="Print & Save as PDF" onclick="printpage()"/></center>
 </html>
+
+<script>
+// function myFunction() {
+//   window.print();
+// }
+ function printpage() {
+    var mywindow = window.open('', 'new div', 'height=400,width=600' );
+        //Get the print button and put it into a variable
+        var printButton = document.getElementById("printpagebutton");
+        //Set the print button visibility to 'hidden' 
+        // printButton.style.visibility = 'hidden';
+        //Print the page content
+        // window.print()
+        mywindow.document.write('<fieldset><br><head> <!-- <img src="assets/exalogic.png" alt="exalogic logo" width="120" height="40" style="position: relative;right: : 950px;"> --> <img src="http://www.exalogic.in/wp-content/uploads/2018/08/exalogic.png" style="width:15%"> <%#= image_tag (asset_path 'exalogic.png') %> <center><h2><header style="font-weight: bold;">Exalogic Solutions Pvt Ltd<br><br>22, Ganganagar 1st Main Road, Bangalore-560032 (India)</header></h2></center><br><br> <hr><center><h1>Pay Slip (<%= @user.salary_month %>-<%=@user.salary_year%>)</h1></center><%#=Date::MONTHNAMES[Date.today.month] %><%#= Date.today.strftime("%Y") %><hr> <style> th, td { padding: 10px; } th { text-align: left; } </style> </head><body> <table width = 100%> <tr> <td> <strong>Employee id:</strong></td> <td><%= (@user.employee_id).to_i%></td> <td> <strong>Name:</strong></td> <td><%= @user.first_name %>&nbsp;<%= @user.last_name %></td> </tr> <tr> <td> <strong>Department:</strong></td> <td><%= @user.department %></td> <td> <strong>Designation:</strong></td> <td><%= @user.designation %></td> </tr> <tr> <td> <strong>Date of Joining:</strong></td> <td><%= @user.date_of_joining %></td> <td> <strong>PF/ESI:</strong></td> <td>0</td> </tr> <tr> <td> <strong>Bank Account:</strong></td> <td><%= (@user.bank_account).to_i %>&nbsp;(<%= @user.bank_name %>)</td> <td> <strong>Number of Days:</strong></td> <td><%= @user.days_in_a_month%><%#= Time.days_in_month(Time.now.month, Time.now.year) %></td> </tr> </table><br> <table width=100%, border="1px", style="border-collapse: collapse;"> <!-- <caption style="font-weight: bold;">DETAILS</caption> --> <tr> <th>Earnings</th> <th>Amount</th> <th>Deductions</th> <th>Amount</th> </tr> <tr> <td>Basic Pay</td> <td><%= @user.basic_pay%></td> <td>Professional Tax</td> <td><%= @user.professional_tax %></td> </tr> <tr> <td>HRA</td> <td><%= @user.house_rent_allowance%></td> <td>Tax</td> <td><%= @user.income_tax%></td> </tr> <tr> <td>CCA</td> <td><%= @user.city_compensatory_allowance%></td> <td>Loss of Pay</td> <td><%= @user.loss_of_pay %></td> </tr> <tr> <td>Special Allowance</td> <td><%= @user.special_allowance%></td> <td>Other Deductions</td> <td><%= @user.other_deductions %></td> </tr> <tr> <td>Transport Allowance</td> <td><%= @user.transport_allowance%></td> <td></td> <td></td> </tr> <tr> <td>Reimbursement</td> <td><%= @user.reimbursement%></td> <td></td> <td></td> </tr> <tr> <td style="font-weight: bold; text-decoration: underline;">Total Earnings (Gross Pay)</td> <td><%= @user.gross_pay %></td> <td style="font-weight: bold;text-decoration: underline;">Total Deductions</td> <td><%= @user.total_deductions %></td> </tr> <tr> <td ></td> <td></td> <td style="font-weight: bold;text-decoration: underline;">Net Pay</td> <td><%= @user.net_pay %></td> </tr> </table> <br> <table > <tr> <td> <strong>Net Pay (in words):</strong></td> <td style="font-weight: bold"><%= in_words(@user.net_pay.to_i).capitalize %> only</td> </tr> </table> <br> <hr> <center><p style="font-weight: bold">***This is system generated payslip and does not require signature</p></center></body></fieldset><br><!-- <button onclick="goBack()">Go Back</button> --> <%#= link_to 'Back', users_path %><!-- <center><button onclick="myFunction()">Print</button></center> --><center>');
+        //Set the print button to 'visible' again 
+        //[Delete this line if you want it to stay hidden after printing]
+
+        mywindow.print();
+mywindow.close();
+return true;
+        // printButton.style.visibility = 'visible';
+
+    }
+   
+
+//    function goBack() {
+    
+//   window.history.back();
+//   display : none;
+  
+
+// } 
+ 
+
+</script>

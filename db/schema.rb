@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_102627) do
+ActiveRecord::Schema.define(version: 2019_12_10_081900) do
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 2019_12_06_102627) do
     t.string "bank_branch"
     t.string "ifsc_code"
     t.decimal "total_deductions"
+    t.string "salary_month"
+    t.integer "salary_year"
+    t.string "days_in_a_month"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

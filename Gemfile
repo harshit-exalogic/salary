@@ -22,10 +22,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 #gem 'to_words'
+# gem 'prawn'
+# gem 'prawn-table'
 
-#gem 'jquery-rails'
-# gem 'wicked_pdf', '~> 1.1'
-# gem 'wkhtmltopdf-binary'
+gem 'jquery-rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 #gem 'wkhtmltopdf-binary'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

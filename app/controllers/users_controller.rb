@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user=User.find_by_id(params[:id])
+    
   end
 
   # GET /users/new
@@ -79,22 +80,12 @@ class UsersController < ApplicationController
 
     end
     def salary_slip
-       #@user=User.find_by_id(params[:id])
-    #  pdf = WickedPdf.new.pdf_from_string( #1
-    # render_to_string('salary_slip', layout: false)) #2
-    # send_data(pdf, #3
-    # filename: 'salary_slip.pdf', #4
-    # type: 'application/pdf', #5
-    # disposition: 'attachment') #6
-  #    respond_to do |format|
-  #  format.html
-  #  format.pdf do
-  #    render pdf: "Your_filename",
-  #    template: "users/salary_slip.html.erb"
-  #    layout: 'pdf.html'
-  #  end
-  # end
+     
     end
+
+
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -113,7 +104,7 @@ class UsersController < ApplicationController
          :gender, :mobile, :blood_type, :emergency_contact_name, 
          :emergency_contact_number, :primary_skill, :secondary_skill_1, 
          :secondary_skill_2, :notice_period_in_days, :role, :email, :password,
-          :password_confirmation,:employee_id,:department,:designation,:bank_account,:bank_name,:bank_branch,:ifsc_code,:total_deductions)
+          :password_confirmation,:employee_id,:department,:designation,:bank_account,:bank_name,:bank_branch,:ifsc_code,:total_deductions,:salary_month,:salary_year,:days_in_a_month)
     end
 
     # def is_admin?

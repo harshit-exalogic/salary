@@ -23,7 +23,19 @@ background-size: 200%;
    <tr>
     <td colspan="4"><label><h3><b>ENTER THE DETAILS:-</b></h3></label></td></tr>
 
+    <div class="field">
+        <%= form.label :salary_month %>
+        <%= form.select :salary_month,[['Month',nil],'JANUARY ',' FEBRUARY','MARCH','APRIL','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'] %>
+    </div>
+    <div class="field">
+        <%= form.label :days_in_a_month %>
+        <%= form.select :days_in_a_month,[['Days',nil],'28','29','30','31'] %>
+    </div>
 
+    <div class="field">
+        <%= form.label :salary_year %>
+        <%= form.number_field :salary_year %>
+    </div>
 
 
 

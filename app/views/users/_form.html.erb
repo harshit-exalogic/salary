@@ -88,7 +88,9 @@ background-size: 200%;
 
   <div class="field">
     <%= form.label :bank_account %>
-    <%= form.number_field :bank_account,:minlength =>8, :maxlength => 18 %>
+    <%#= form.number_field :bank_account,:minlength =>8, :maxlength => 18 %>
+    <%= form.text_field :bank_account ,:minlength =>6, :maxlength => 18,
+    :pattern=>'\d*'%>
   </div>
 
 
