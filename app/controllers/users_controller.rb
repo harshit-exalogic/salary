@@ -100,7 +100,7 @@ class UsersController < ApplicationController
        :enter_the_tax_rate, :other_deductions, :house_rent_allowance,:city_compensatory_allowance, :special_allowance,:transport_allowance ,
         :income_tax,:professional_tax , :loss_of_pay, :gross_pay , :net_pay, 
         :last_name, :date_of_birth, :date_of_joining,
-         :salary_per_annum, :salary_per_month, :addrress, :state,:pincode,:country,
+         :addrress, :state,:pincode,:country,
          :gender, :mobile, :blood_type, :emergency_contact_name, 
          :emergency_contact_number, :primary_skill, :secondary_skill_1, 
          :secondary_skill_2, :notice_period_in_days, :role, :email, :password,
